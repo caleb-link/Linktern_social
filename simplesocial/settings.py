@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    'bootstrap3',
+    'bootstrap4',
     'accounts',
     'groups',
     'posts',
