@@ -4,13 +4,13 @@
 <div class="col-md-4">
 	<div class="content">
 		{% if user.is_authenticated %}
-		<h2>
+		<h3>
 			Welcome back
 			<a href="{% url 'posts:for_user' username=user.username %}">@{{user.username }}</a>
-		</h2>
+		</h3>
 
     {% endif %}
-			<h2>Groups</h2>
+			<h4>Current Discussions</h4>
 
 			<p>Welcome to the Groups Page! Select a Group with a shared interest!</p>
 	</div>
@@ -25,12 +25,12 @@
 	<div class="list-group">
 		{% for group in object_list %}
 		  <a class="list-group-item" href="{% url 'groups:single' slug=group.slug %}">
-			     <h3 class="title list-group-item-heading">{{ group.name }}</h3>
+			     <h4 class="title list-group-item-heading">{{ group.name }}</h4>
 			<div class="list-group-item-text container-fluid">
 				{{ group.description_html|safe }}
 				<div class="row">
 					<div class="col-md-4">
-						<span class="badge">{{ group.members.count }}</span> member{{ group.members.count|pluralize }}
+						<span class="badge"><i class="glyphicon glyphicon-user"></i> {{ group.members.count }}</span> member{{ group.members.count|pluralize }}
 					</div>
 					<div class="col-md-4">
 						<span class="badge">{{ group.posts.count }}</span> post{{ group.posts.count|pluralize }}
