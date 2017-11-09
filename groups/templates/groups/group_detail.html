@@ -2,32 +2,29 @@
 
 {% block pregroup %}
 
+<div class="contanier-fulid">
+  <div class="card-header">
+    <h4 class="card-title">{{group.name}}</h4>
+  </div>
+  <div class="card-footer">
+    <h5>{{group.members.count}} members in this group</h5></h4>
+    <hr>
 
-<h3>{{group.name}}</h3>
-<h5>{{group.members.count}} members in this group</h5>
-
-  <div class="content">
-
-
-				{% if user in group.members.all %}
-					<a href="{% url 'groups:leave' slug=group.slug %}" class="btn btn-lg btn-fill btn-warning"><span class="glyphicon glyphicon-remove-circle"></span> Leave</a>
-				{% else %}
-					<a href="{% url 'groups:join' slug=group.slug %}" class="btn btn-lg btn-fill btn-warning"><span class="glyphicon glyphicon-ok-circle"></span> Join</a>
-				{% endif %}
-
-
+    				{% if user in group.members.all %}
+              <p>You are currnently in this group!</p>
+    					<a href="{% url 'groups:leave' slug=group.slug %}" class="btn btn-lg btn-fill btn-warning"><span class="glyphicon glyphicon-remove-circle"></span> Leave</a>
+    				{% else %}
+              <p>Would you like to join this group?</p>
+    					<a href="{% url 'groups:join' slug=group.slug %}" class="btn btn-lg btn-fill btn-warning"><span class="glyphicon glyphicon-ok-circle"></span> Join</a>
+    				{% endif %}
+  </div>
 
 </div>
-
 {% endblock %}
-
-
 {% block group_content %}
-
 <div class="col-md-8">
 	{% if group.posts.count == 0 %}
 	<h2>No posts in this group yet!</h2>
-
 	{% else %}
 
 		{% for post in group.posts.all %}
