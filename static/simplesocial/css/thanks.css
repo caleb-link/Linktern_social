@@ -1,0 +1,16 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+	overflow: hidden;
+}
+canvas {
+	display: block;
+	margin: auto;
+	max-width: 1136px;
+}
