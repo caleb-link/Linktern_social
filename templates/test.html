@@ -5,18 +5,44 @@
 {% load staticfiles %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'simplesocial/css/landing.css' %}">
-<div class="container">
-  <div class="card-header">
-    <h4 class="card-title">Welcome {{user.username}}!</h4>
-  </div>
-  <div class="card-block">
-    <div class="input-wrapper" data-text="">
-      <input type="text" placeholder="Search...">
+<br><br>
+  <div class="container">
+    <h4>Welcome, <strong>{{user.username}}</strong>.</h4>
+    <hr>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card-header">
+          <h4 class="card-title">Go checkout groups</h4>
+        </div>
+        <div class="card-block">
+          <p>Where you can go find out what linkterns up to.</p>
+        </div>
+        <div class="card-footer">
+          <a href="{% url 'groups:all' %}" class="btn btn-primary btn-md">Go to Groups</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-header">
+          <h4 class="card-title">Go checkout Posts</h4>
+        </div>
+        <div class="card-block">
+          <p>There are more than 10 billion cells in human body.</p>
+        </div>
+        <div class="card-footer">
+          <a href="{% url 'posts:all' %}" class="btn btn-primary btn-md">Go to Posts</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-header">
+          <h4 class="card-title">Talk to one of linkern</h4>
+        </div>
+        <div class="card-block">
+          <p>Ask whatever you need to ask, Don't be shy to ask away!</p>
+        </div>
+        <div class="card-footer">
+          <a href="{% url 'groups:all' %}" class="btn btn-primary btn-md">Live Chat</a>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="button">
-    <h4>Or</h4>
-    <a class="btn btn-success btn-large" href="{% url 'groups:all' %}">Go groups</a>
-  </div>
-</div>
 {% endblock %}
