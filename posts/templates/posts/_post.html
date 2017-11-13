@@ -5,7 +5,16 @@
 <div class="container">
 	<div class="header-content">
 		<div class="col-md-7">
-
+			<h4 class="intro">User post detail</h4>
+			<div class="card card-1">
+				<h3>{{ post.message_html|safe }}</h3>
+				<strong>{{ post.user.username }}</strong>
+				<a href="{% url 'posts:for_user' username=post.user.username %}">@{{ post.user.username }}</a>
+				<time class="time"><a href="{% url 'posts:single' username=post.user.username pk=post.pk %}">{{ post.created_at }}</a></time>
+				{% if post.group %}
+				<span class="group-name">in <a href="#">{{ post.group.name }}</a></span>
+				{% endif %}
+			</div>
 		</div>
 	</div>
 	<div class="body-content">
@@ -15,25 +24,6 @@
 
 	</div>
 </div>
-
-<div class="container-fulid">
-	<div class="card-header">
-		<h4 class="card-title">User post detail</h4>
-	</div>
-	<div class="card-footer">
-			<div class="card card-1">
-				<h3>{{ post.message_html|safe }}</h3>
-				<strong>{{ post.user.username }}</strong>
-				<a href="{% url 'posts:for_user' username=post.user.username %}">@{{ post.user.username }}</a>
-				<time class="time"><a href="{% url 'posts:single' username=post.user.username pk=post.pk %}">{{ post.created_at }}</a></time>
-				{% if post.group %}
-				<span class="group-name">in <a href="#">{{ post.group.name }}</a></span>
-				{% endif %}
-		</div>
-		<div class="card card-1">
-
-		</div>
-	</div>
 	<div class="media-footer"><br>
 		{% if user.is_authenticated and post.user == user and not hide_delete %}
 			<a  class="btn btn-danger btn-lg" href="{% url 'posts:delete' pk=post.pk %}">Delete</a>
