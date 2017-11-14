@@ -1,0 +1,10 @@
+This is my very first projects from the Udemy Django Course.
+To run this project, you need to install anaconda, then create your own virtualenv in the anaconda.
+Then run following commands =
+
+pip install django-bootstrap4
+pip install django-braces
+pip install misaka
+
+python manage.py runserver
+

@@ -1,7 +1,7 @@
 {% extends "groups/group_base.html" %}
-
+{% load staticfiles %}
 {% block pregroup %}
-
+<link rel="stylesheet" href="{% static 'simplesocial/css/basic.css'%}">
 <div class="col-md-8">
   <div class="card-header">
     <h4 class="card-title">{{group.name}}</h4>
